@@ -259,8 +259,6 @@ public class SongRepository {
             e.printStackTrace();
         }
 
-//        if(song == null) System.out.println("There are no songs found");
-//        else writeCSV("songShow", "SongAudit.csv");
         return song;
     }
 
@@ -289,8 +287,6 @@ public class SongRepository {
             e.printStackTrace();
         }
 
-//        if(song == null) System.out.println("There are no songs found");
-//        else writeCSV("songShow", "SongAudit.csv");
         return song;
     }
 

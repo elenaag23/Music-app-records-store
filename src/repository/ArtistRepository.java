@@ -94,7 +94,6 @@ public class ArtistRepository {
         } catch(SQLException e) {
             e.printStackTrace();
         }
-        //writeCSV("artistShow", "ArtistAudit.csv");
         return artists;
     }
 
@@ -151,10 +150,9 @@ public class ArtistRepository {
             }
 
         } catch(SQLException e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace();}
 
-        //writeCSV("artistShow", "ArtistAudit.csv");
+
         return artist;
     }
 

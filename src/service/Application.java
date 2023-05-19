@@ -1,16 +1,7 @@
 package service;
 
 import model.User;
-import model.typeofmusic.Album;
-import model.typeofmusic.Artist;
-import model.typeofmusic.Playlist;
-import repository.ArtistRepository;
 import repository.UserRepository;
-import java.io.FileReader;
-import com.opencsv.CSVWriter;
-import java.io.FileWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import java.io.IOException;
 import java.util.*;
@@ -144,17 +135,12 @@ public class Application {
                 String provPassword = data.nextLine();
 
                 user = userRepository.getUser(provUsername, provPassword);
-                userId = user.getId();
-
 
             }
 
             else if(login==2)
             {
                 user = userRepository.addUser();
-                userId = user.getId();
-
-
             }
 
             else if(login == 0) {
@@ -237,21 +223,6 @@ public class Application {
 
                         }
 
-//                        else if(appChoice == 11) {
-//                            service.showPodcast();
-//                            System.out.println("Do you need more information about one of the podcasts? yes/no");
-//                            Scanner var1 = new Scanner(System.in);
-//                            String option = var1.nextLine();
-//
-//                            if(Objects.equals(option, "yes")) {
-//                                service.showAPodcast();
-//
-//                            }
-//                            else continue;
-//                            System.out.println("------------------------------------");
-//
-//                        }
-
                         else if(appChoice == 11) {
                             service.showPodcast();
                             service.showAPodcast();
@@ -309,21 +280,6 @@ public class Application {
                             System.out.println("------------------------------------");
 
                         }
-
-//                        else if(appChoice == 19) {
-//                            service.showAlbum();
-//                            System.out.println("Do you need more information about one of the albums? yes/no");
-//                            Scanner var1 = new Scanner(System.in);
-//                            String option = var1.nextLine();
-//
-//                            if(Objects.equals(option, "yes")) {
-//                                service.showAnAlbum();
-//
-//                            }
-//                            else continue;
-//                            System.out.println("------------------------------------");
-//
-//                        }
 
                         else if(appChoice == 20) {
                             albumService.deleteAlbum();

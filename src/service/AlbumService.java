@@ -6,7 +6,6 @@ import model.typeofmusic.Song;
 import repository.AlbumRepository;
 import repository.ArtistRepository;
 import repository.SongRepository;
-import service.ApplicationService;
 
 import java.io.IOException;
 import java.util.*;
@@ -181,67 +180,6 @@ public class AlbumService {
                 else if(option == 3) {albumRepository.editAlbumYear(albumDB.get(index-1).getId()); break;}
                 else System.out.println("Invalid option! Please try again.");
             }
-        }
-
-
-    }
-
-    public void editSongArtist(int id, ArtistService artistService) throws IOException
-    {
-
-        Scanner scanner = new Scanner(System.in);
-        List<Artist> artistDB = artistRepository.getDataArtist();
-        System.out.println("Here is a list of all the artists: ");
-        artistService.getDataArtist();
-        System.out.println("Does the song belong to one of these artists? y/n");
-        String option = scanner.nextLine();
-        while(true)
-        {
-            if(Objects.equals(option, "y"))
-            {
-                System.out.println("Write the index of the artist that the song belongs to: ");
-                int artistIndex = scanner.nextInt();
-                while (artistIndex < 0 || artistIndex - 1 >= artistRepository.getDataArtist().size()) {
-
-                    System.out.println("Please provide an index in the songs' range.");
-                    artistIndex = scanner.nextInt();
-
-                }
-
-                Artist artist = artistDB.get(artistIndex-1);
-                songRepository.editSongArtist(id, artist.getId());
-                break;
-            }
-
-            else if(Objects.equals(option, "n")){
-
-                Artist artist = new Artist();
-                artist.read();
-                boolean success = true;
-                for(int i=0;i<artistDB.size();i++)
-                {
-                    if (artistDB.get(i).getName().equalsIgnoreCase(artist.getName()))
-                    {
-                        System.out.println("You cannot add an artist that is already in the database!");
-                        success = false;
-                        break;
-                    }
-                }
-                if(success)
-                {
-                    artistRepository.addArtist(artist);
-                    artistDB = artistRepository.getDataArtist();
-                    artist = artistDB.get(artistDB.size()-1);
-                    songRepository.editSongArtist(id, artist.getId());
-                }
-
-                else System.out.println("The song was not updated.");
-
-                break;
-
-            }
-
-            else System.out.println("Invalid option. Please try again.");
         }
 
 

@@ -12,22 +12,6 @@ public class Episode extends TypeOfMusic{
 
     private String date;
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getEpNumber() {
-        return epNumber;
-    }
-
-    public void setEpNumber(int epNumber) {
-        this.epNumber = epNumber;
-    }
-
     public Episode() {
     }
 
@@ -40,13 +24,6 @@ public class Episode extends TypeOfMusic{
         this.date = date;
     }
 
-    public Episode(int epNumber, String name, String about, String duration, String date) {
-        this.epNumber = epNumber;
-        this.name = name;
-        this.about = about;
-        this.duration = duration;
-        this.date = date;
-    }
 
     public void read()
     {
@@ -74,8 +51,6 @@ public class Episode extends TypeOfMusic{
                 "\n About: " + about;
     }
 
-
-
     public String getName() {
         return name;
     }
@@ -84,19 +59,4 @@ public class Episode extends TypeOfMusic{
         this.name = name;
     }
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public void setAbout(String about) {
-        this.about = about;
-    }
 }

@@ -3,8 +3,6 @@ package repository;
 import com.opencsv.CSVWriter;
 import config.DatabaseConnection;
 import model.User;
-import model.typeofmusic.Album;
-import model.typeofmusic.Artist;
 import model.typeofmusic.Playlist;
 import model.typeofmusic.Song;
 
@@ -17,7 +15,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class PlaylistRepository {
@@ -29,14 +26,11 @@ public class PlaylistRepository {
             instance = new PlaylistRepository();
         return instance;
     }
-
-    private ArtistRepository artistRepository;
     private SongRepository songRepository;
 
     private UserRepository userRepository;
 
     public PlaylistRepository() {
-        this.artistRepository = ArtistRepository.getInstance();
         this.songRepository = SongRepository.getInstance();
         this.userRepository = UserRepository.getInstance();
 
@@ -97,7 +91,6 @@ public class PlaylistRepository {
     public void addPlaylist(Playlist playlist) throws IOException {
         String sql = "insert into playlist values (null, ?, ?, ?) ";
         int userId = playlist.getUser().getId();
-        //int newId = userRepository.getUser(userId).getId();
         boolean success = false;
         try (PreparedStatement statement = DatabaseConnection.getInstance().prepareStatement(sql)) {
             statement.setString(1, playlist.getName());
@@ -168,7 +161,7 @@ public class PlaylistRepository {
         } catch(SQLException e) {
             e.printStackTrace();
         }
-        //writeCSV("playlistShow", "PlaylistAudit.csv");
+
         return playlists;
     }
 
@@ -257,7 +250,7 @@ public class PlaylistRepository {
             e.printStackTrace();
         }
 
-        //writeCSV("playlistShow", "PlaylistAudit.csv");
+
         return playlist;
     }
 

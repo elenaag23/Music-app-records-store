@@ -1,11 +1,8 @@
 package service;
 
 import model.User;
-import model.typeofmusic.Album;
-import model.typeofmusic.Artist;
 import model.typeofmusic.Playlist;
 import model.typeofmusic.Song;
-import repository.AlbumRepository;
 import repository.ArtistRepository;
 import repository.PlaylistRepository;
 import repository.SongRepository;
@@ -17,9 +14,6 @@ import java.util.*;
 public class PlaylistService {
 
     private static PlaylistService instance = null;
-    private ArtistRepository artistRepository;
-
-    private UserRepository userRepository;
     private SongRepository songRepository;
     private SongService songService;
     private PlaylistRepository playlistRepository;
@@ -35,11 +29,10 @@ public class PlaylistService {
     }
 
     private PlaylistService() {
-        this.artistRepository = ArtistRepository.getInstance();
+
         this.songRepository = SongRepository.getInstance();
         this.playlistRepository = PlaylistRepository.getInstance();
         this.applicationService = ApplicationService.getInstance();
-        this.userRepository = UserRepository.getInstance();
         this.songService = SongService.getInstance();
         this.playlists = applicationService.getPlaylists();
         this.songs = applicationService.getSongs();
@@ -53,10 +46,6 @@ public class PlaylistService {
         String name = scanner.nextLine();
         System.out.println("Write the category of the playlist:");
         String category = scanner.nextLine();
-        //System.out.println("hei id");
-        //System.out.println(userId);
-
-        //System.out.println(user.getUsername());
 
         Playlist playlist = new Playlist(category, name, user);
         playlistRepository.addPlaylist(playlist);

@@ -302,8 +302,6 @@ public class AlbumRepository {
             e.printStackTrace();
         }
 
-//        if(album == null) System.out.println("There are no albums found");
-//        else writeCSV("albumShow", "AlbumAudit.csv");
         return album;
     }
 

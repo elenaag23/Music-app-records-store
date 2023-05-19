@@ -27,10 +27,6 @@ public abstract class Product implements Comparable<Product>{
         return price;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     public Product() {
     }
 

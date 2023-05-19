@@ -39,10 +39,6 @@ public class Song extends TypeOfMusic {
         return duration;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
     public Song(){this.artist = new Artist();}
 
     public Song(int id, String category) {super(id, category);

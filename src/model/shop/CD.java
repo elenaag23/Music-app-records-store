@@ -18,15 +18,6 @@ public class CD extends Product {
     public CD() {
         this.album = new Album();
     }
-
-    public CD(int id, float price, int noInStock) {
-        super(id, price, noInStock);
-    }
-
-    public CD(Album album) {
-        this.album = album;
-    }
-
     public CD(int id, float price, int noInStock, Album album) {
         super(id, price, noInStock);
         this.album = album;

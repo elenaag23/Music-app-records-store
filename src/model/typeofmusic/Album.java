@@ -21,10 +21,6 @@ public class Album extends TypeOfMusic {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public Artist getArtist() {
         return artist;
     }

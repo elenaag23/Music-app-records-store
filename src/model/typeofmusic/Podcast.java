@@ -12,16 +12,6 @@ public class Podcast extends TypeOfMusic {
     public Podcast() {
     }
 
-    public Podcast(int id, String category) {
-        super(id, category);
-    }
-
-    public Podcast(String name, String description, List<Episode> episodes) {
-        this.name = name;
-        this.description = description;
-        this.episodes = episodes;
-    }
-
     public Podcast(int id, String category, String name, String description, List<Episode> episodes) {
         super(id, category);
         this.name = name;
@@ -76,20 +66,9 @@ public class Podcast extends TypeOfMusic {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public List<Episode> getEpisodes() {
         return episodes;
     }
 
-    public void setEpisodes(List<Episode> episodes) {
-        this.episodes = episodes;
-    }
 
 }

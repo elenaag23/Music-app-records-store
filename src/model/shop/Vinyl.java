@@ -18,29 +18,7 @@ public class Vinyl extends Product {
         this.name = name;
     }
 
-    public List<Album> getAlbums() {
-        return albums;
-    }
-
-    public void setAlbums(List<Album> albums) {
-        this.albums = albums;
-    }
-
     public Vinyl() {
-    }
-
-    public Vinyl(int id, float price, int noInStock) {
-        super(id, price,noInStock);
-    }
-
-//    @Override
-//    public float compareTo(CD c) {
-//        return 0;
-//    }
-
-    public Vinyl(String name, List<Album> albums) {
-        this.albums = albums;
-        this.name = name;
     }
 
     public Vinyl(int id, float price, int noInStock, String name, List<Album> albums) {

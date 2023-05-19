@@ -17,9 +17,6 @@ public class SongService {
     private ArtistRepository artistRepository;
     private SongRepository songRepository;
 
-    private ApplicationService applicationService;
-    //= ApplicationService.getInstance();
-
     private List<Song> songs;
     public HashMap<String, List<Song>> songCategories;
 

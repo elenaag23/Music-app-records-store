@@ -5,10 +5,6 @@ import model.typeofmusic.Podcast;
 import model.typeofmusic.Episode;
 import model.typeofmusic.Playlist;
 import model.typeofmusic.Album;
-import repository.ArtistRepository;
-import repository.SongRepository;
-
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class ApplicationService {
@@ -33,13 +29,6 @@ public class ApplicationService {
 
 
     private ApplicationService() {
-    //    this.artistService = ArtistService.getInstance();
-      //  this.artistRepository = ArtistRepository.getInstance();
-//        this.songRepository = SongRepository.getInstance();
-//        this.songService = SongService.getInstance();
-//        this.albumService = AlbumService.getInstance();
-//        this.playlistService = PlaylistService.getInstance();
-
     }
 
     public List<Song> getSongs() {
@@ -531,10 +520,6 @@ public class ApplicationService {
 
     }
 
-
-
-
-
     public void playEpisode()
     {
         System.out.println("-----------Play episode----------");
@@ -832,18 +817,18 @@ public class ApplicationService {
                 String categ = podcasts.get(indexChoice - 1).getCategory();
                 List<Podcast> podCateg = podcastCategories.get(categ);
 
-                //if(podCateg!=null)
-                //{
-//                    for(Podcast p: podCateg)
-//                    {
-//                        if(p == podcasts.get(indexChoice - 1))
-//                        {
-//                            podCateg.remove(p);
-//                            podcastCategories.put(categ,podCateg);
-//                            break;
-//                        }
-//                    }
-                //}
+                if(podCateg!=null)
+                {
+                    for(Podcast p: podCateg)
+                    {
+                        if(p == podcasts.get(indexChoice - 1))
+                        {
+                            podCateg.remove(p);
+                            podcastCategories.put(categ,podCateg);
+                            break;
+                        }
+                    }
+                }
 
 
 

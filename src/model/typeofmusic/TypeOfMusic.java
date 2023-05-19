@@ -34,10 +34,6 @@ public abstract class TypeOfMusic {
     public TypeOfMusic() {
     }
 
-    public TypeOfMusic(int id) {
-        this.id = id;
-    }
-
     @Override
     abstract public String toString();
 }

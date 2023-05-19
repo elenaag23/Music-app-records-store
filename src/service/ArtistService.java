@@ -15,7 +15,6 @@ public class ArtistService {
 
     private static ArtistService instance = null;
     private ArtistRepository artistRepository;
-    private SongRepository songRepository;
 
     public static synchronized ArtistService getInstance() {
         if (instance == null)
@@ -25,7 +24,8 @@ public class ArtistService {
 
     ArtistService() {
         this.artistRepository = ArtistRepository.getInstance();
-        this.songRepository = SongRepository.getInstance();}
+    }
+
 
         public void addArtist() throws IOException
     {
