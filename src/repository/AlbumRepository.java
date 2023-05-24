@@ -26,8 +26,8 @@ public class AlbumRepository {
 
 
     public AlbumRepository() {
-        this.artistRepository = new ArtistRepository();
-        this.songRepository = new SongRepository();
+        this.artistRepository = ArtistRepository.getInstance();
+        this.songRepository = SongRepository.getInstance();
 
     }
 
