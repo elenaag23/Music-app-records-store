@@ -1,0 +1,111 @@
+
+
+
+use `paoDB`;
+
+drop table `song`;
+
+drop table `artist`;
+
+drop table `album`;
+
+drop table `user`;
+
+CREATE TABLE `Artist` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `noStreams` VARCHAR(100) DEFAULT 0,
+    PRIMARY KEY (`id`)
+);
+
+
+CREATE TABLE `User` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(100) NOT NULL UNIQUE,
+    `password` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Song` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `duration` VARCHAR(10) NOT NULL,
+    `category` VARCHAR(20) NOT NULL,
+    `noStreams` int(11) DEFAULT 0,
+    `artistId` int(11) NOT NULL,
+    FOREIGN KEY (`artistId`) REFERENCES `artist`(`id`) 	ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Episode` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `epNumber` INT(11) NOT NULL,
+    `name` VARCHAR(100) NOT NULL,
+    `duration` VARCHAR(10) NOT NULL,
+    `about` VARCHAR(100) NOT NULL,
+	`date` VARCHAR(15) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Album` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `category` VARCHAR(100) NOT NULL,
+    `year` int(6) NOT NULL,
+    `noLikes` int(11) DEFAULT 0,
+	`like` int(2) DEFAULT 0,
+    `artistId` int(11) NOT NULL,
+    FOREIGN KEY (`artistId`) REFERENCES `artist`(`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `SongInAlbum` (
+      `songId` int(11) NOT NULL,
+      `albumId` int(11) NOT NULL,
+      FOREIGN KEY (`songId`) REFERENCES `song`(`id`) ON DELETE CASCADE,
+      FOREIGN KEY (`albumId`) REFERENCES `album`(`id`) ON DELETE CASCADE,
+	  PRIMARY KEY (`songId`, `albumId`)
+);
+
+CREATE TABLE `Playlist` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `category` VARCHAR(100) NOT NULL,
+    `noLikes` int(11) DEFAULT 0,
+	`like` int(2) DEFAULT 0,
+    `userId` int(11) NOT NULL,
+    FOREIGN KEY (`userId`) REFERENCES `user`(`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `SongInPlaylist` (
+      `songId` int(11) NOT NULL,
+      `playlistId` int(11) NOT NULL,
+      FOREIGN KEY (`songId`) REFERENCES `song`(`id`) ON DELETE CASCADE,
+      FOREIGN KEY (`playlistId`) REFERENCES `playlist`(`id`) ON DELETE CASCADE,
+	  PRIMARY KEY (`songId`, `playlistId`)
+);
+
+drop table `songinalbum`;
+
+truncate `artist`;
+
+truncate `song`;
+
+INSERT INTO `Artist`(`name`, `noStreams`) VALUES (
+	"The Motans", 235);
+    
+INSERT INTO `Artist`(`name`, `noStreams`) VALUES (
+    "Ariana Grande", 456);
+    
+INSERT INTO `Artist`(`name`, `noStreams`) VALUES (
+    "Mac Miller", 321);
+    
+INSERT INTO `Artist`(`name`, `noStreams`) VALUES (
+    "Tory Lanez", 265);
+    
+INSERT INTO `Artist`(`name`, `noStreams`) VALUES (
+    "The 1975", 146);
+
+select * from `song`;
+
